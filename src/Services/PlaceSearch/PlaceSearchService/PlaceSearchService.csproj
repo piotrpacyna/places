@@ -8,7 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.3" />
+    <PackageReference Include="MediatR" Version="8.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PlaceSearchService.Api\PlaceSearchService.Api.csproj" />
+    <ProjectReference Include="..\PlaceSearchService.Infrastructure\PlaceSearchService.Infrastructure.csproj" />
   </ItemGroup>
 
 
