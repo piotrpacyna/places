@@ -18,13 +18,16 @@ namespace PlaceSearchService.IntegrationTests
             }
         }
 
-        [Fact]
-        public async Task Search_WhenNameIsEmpty_ShouldReturnBadRequestStatusCode()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData(" ")]
+        public async Task Search_WhenNameIsEmpty_ShouldReturnBadRequestStatusCode(string name)
         {
             using (var server = CreateServer())
             {
                 var response = await server.CreateClient()
-                    .GetAsync(PlaceSearchServiceUrls.Get.SearchByName(string.Empty));
+                    .GetAsync(PlaceSearchServiceUrls.Get.SearchByName(name));
 
                 Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
             }
