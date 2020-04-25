@@ -23,6 +23,8 @@ namespace PlaceSearchService
         {
             services.AddControllers()
                 .AddJsonOptions(options => options.JsonSerializerOptions.WriteIndented = true);
+
+            services.AddSwagger();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -47,6 +49,7 @@ namespace PlaceSearchService
             {
                 endpoints.MapControllers();
             });
+            app.UseCustomSwagger();
         }
     }
 }
