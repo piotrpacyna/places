@@ -3,8 +3,8 @@ using Autofac;
 using FluentValidation;
 using MediatR;
 using PlaceSearchService.Api.Queries;
-using PlaceSearchService.ApplicationCore.Commands;
 using PlaceSearchService.ApplicationCore.PipelineBehaviors;
+using PlaceSearchService.ApplicationCore.Queries;
 
 namespace PlaceSearchService.Infrastructure.AutofacModules
 {

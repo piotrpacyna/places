@@ -5,7 +5,7 @@ using MediatR;
 using PlaceSearchService.Api.Queries;
 using PlaceSearchService.Api.Queries.Dtos.Place;
 
-namespace PlaceSearchService.ApplicationCore.Commands
+namespace PlaceSearchService.ApplicationCore.Queries
 {
     public class FindPlaceQueryHandler : IRequestHandler<FindPlaceQuery, FindPlaceQueryResult>
     {
