@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using PlaceSearchService.ApplicationCore.Exceptions;
 
 namespace PlaceSearchService.ApplicationCore.PipelineBehaviors
 {
@@ -30,8 +29,8 @@ namespace PlaceSearchService.ApplicationCore.PipelineBehaviors
 
             if (failures.Any())
             {
-                logger.LogWarning($"Command Validation Errors for type {typeof(TRequest).Name} with Failures: {string.Join(Environment.NewLine, failures.Select(x => x.ErrorMessage).ToList())}");
-                throw new CommandValidationException($"Command Validation Errors for type {typeof(TRequest).Name}", new ValidationException("Validation exception", failures));
+                logger.LogWarning($"Validation Errors for type {typeof(TRequest).Name} with Failures: {string.Join(Environment.NewLine, failures.Select(x => x.ErrorMessage).ToList())}");
+                throw new ValidationException(failures);
             }
 
             return await next();

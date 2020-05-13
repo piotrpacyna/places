@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 using System.Threading.Tasks;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using PlaceSearchService.ApplicationCore.Exceptions;
@@ -37,7 +38,7 @@ namespace PlaceSearchService.Infrastructure
 
             switch (ex)
             {
-                case CommandValidationException exception:
+                case ValidationException exception:
                     context.Response.StatusCode = StatusCodes.Status400BadRequest;
                     message = exception.Message;
                     break;
