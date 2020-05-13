@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PlaceSearchService.ApplicationCore\PlaceSearchService.ApplicationCore.csproj" />
+    <ProjectReference Include="..\PlaceSearchService.Domain\PlaceSearchService.Domain.csproj" />
   </ItemGroup>
 
 </Project>

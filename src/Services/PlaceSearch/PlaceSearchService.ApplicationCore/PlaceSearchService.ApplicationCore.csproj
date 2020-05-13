@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PlaceSearchService.Api\PlaceSearchService.Api.csproj" />
+    <ProjectReference Include="..\PlaceSearchService.Domain\PlaceSearchService.Domain.csproj" />
   </ItemGroup>
 
 </Project>

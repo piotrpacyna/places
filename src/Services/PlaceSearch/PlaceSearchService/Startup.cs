@@ -29,7 +29,7 @@ namespace PlaceSearchService
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            //builder.RegisterModule(new ApplicationModule());
+            builder.RegisterModule(new ApplicationModule());
             builder.RegisterModule(new MediatRModule());
         }
 

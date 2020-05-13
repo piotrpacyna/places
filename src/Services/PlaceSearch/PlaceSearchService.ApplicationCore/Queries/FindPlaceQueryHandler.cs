@@ -1,26 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using PlaceSearchService.Api.Queries;
 using PlaceSearchService.Api.Queries.Dtos.Place;
+using PlaceSearchService.Domain.Repositories;
 
 namespace PlaceSearchService.ApplicationCore.Queries
 {
     public class FindPlaceQueryHandler : IRequestHandler<FindPlaceQuery, FindPlaceQueryResult>
     {
-        public Task<FindPlaceQueryResult> Handle(FindPlaceQuery request, CancellationToken cancellationToken)
+        private readonly IPlaceReadRepository placeReadRepository;
+
+        public FindPlaceQueryHandler(IPlaceReadRepository placeReadRepository)
         {
-            return Task.FromResult(new FindPlaceQueryResult()
+            this.placeReadRepository = placeReadRepository;
+        }
+
+        public async Task<FindPlaceQueryResult> Handle(FindPlaceQuery request, CancellationToken cancellationToken)
+        {
+            var result = await placeReadRepository.Find(request.Name);
+
+            return new FindPlaceQueryResult
             {
-                Places = new List<PlaceDto>
+                Places = result.Select(x => new PlaceDto
                 {
-                    new PlaceDto
-                    {
-                        Name = "test name"
-                    }
-                }
-            });
+                    Name = x.Name
+                }).ToList()
+            };
         }
     }
 }
