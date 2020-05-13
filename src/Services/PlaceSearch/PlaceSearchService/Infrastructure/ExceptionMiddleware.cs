@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using PlaceSearchService.ApplicationCore.Exceptions;
 
 namespace PlaceSearchService.Infrastructure
 {
