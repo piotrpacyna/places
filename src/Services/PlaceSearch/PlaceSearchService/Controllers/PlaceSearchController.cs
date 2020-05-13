@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using PlaceSearchService.Api.Queries;
 
 namespace PlaceSearchService.Controllers
@@ -11,12 +10,10 @@ namespace PlaceSearchService.Controllers
     [ApiController]
     public class PlaceSearchController : ControllerBase
     {
-        private readonly ILogger<PlaceSearchController> logger;
         private readonly IMediator mediator;
 
-        public PlaceSearchController(ILogger<PlaceSearchController> logger, IMediator mediator)
+        public PlaceSearchController(IMediator mediator)
         {
-            this.logger = logger;
             this.mediator = mediator;
         }
 
