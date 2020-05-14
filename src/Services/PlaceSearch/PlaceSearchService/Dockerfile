@@ -8,7 +8,6 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["src/Services/PlaceSearch/PlaceSearchService/PlaceSearchService.csproj", "src/Services/PlaceSearch/PlaceSearchService/"]
-RUN dotnet restore "src/Services/PlaceSearch/PlaceSearchService/PlaceSearchService.csproj"
 COPY . .
 WORKDIR "/src/src/Services/PlaceSearch/PlaceSearchService"
 RUN dotnet build "PlaceSearchService.csproj" -c Release -o /app/build

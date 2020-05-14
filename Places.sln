@@ -23,7 +23,38 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaceSearchService.Integrat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaceSearchService.UnitTests", "src\Services\PlaceSearch\Tests\PlaceSearchService.UnitTests\PlaceSearchService.UnitTests.csproj", "{F0C9B155-38D8-442D-92B1-318123F7FEE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaceSearchService.Domain", "src\Services\PlaceSearch\PlaceSearchService.Domain\PlaceSearchService.Domain.csproj", "{38C44D30-ADF1-4FFC-921D-9441EB3E5A95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaceSearchService.Domain", "src\Services\PlaceSearch\PlaceSearchService.Domain\PlaceSearchService.Domain.csproj", "{38C44D30-ADF1-4FFC-921D-9441EB3E5A95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{391AA8FB-BD37-43FA-BEB7-837BB4D109AA}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\infra-run.sh = scripts\infra-run.sh
+		scripts\infra-stop.sh = scripts\infra-stop.sh
+		scripts\infra.yml = scripts\infra.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{8DB30E60-76FC-4517-B427-BE1B1988C7FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "elk", "elk", "{0484CC42-2046-4F52-97E9-957AE69C7B35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "elasticsearch", "elasticsearch", "{C95F3784-F290-4DE0-85F8-0C45CB699937}"
+	ProjectSection(SolutionItems) = preProject
+		docker\elk\elasticsearch\Dockerfile = docker\elk\elasticsearch\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "kibana", "kibana", "{506B4EEE-1038-4137-A7B7-C75FF32F7D34}"
+	ProjectSection(SolutionItems) = preProject
+		docker\elk\kibana\Dockerfile = docker\elk\kibana\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{D8811C9C-4027-4CEA-B0EF-E5819D9F6A83}"
+	ProjectSection(SolutionItems) = preProject
+		docker\elk\elasticsearch\config\elasticsearch.yml = docker\elk\elasticsearch\config\elasticsearch.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{455263EB-AE4D-4183-B327-ADD1ABE6A97D}"
+	ProjectSection(SolutionItems) = preProject
+		docker\elk\kibana\config\kibana.yml = docker\elk\kibana\config\kibana.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +105,11 @@ Global
 		{3571192E-9732-4CAC-B2A4-362FACE7860C} = {7792AC8F-B987-4BA1-9761-B2F5EDB91D36}
 		{F0C9B155-38D8-442D-92B1-318123F7FEE8} = {7792AC8F-B987-4BA1-9761-B2F5EDB91D36}
 		{38C44D30-ADF1-4FFC-921D-9441EB3E5A95} = {F51758C5-9198-46C2-898C-4E47425E8F1F}
+		{0484CC42-2046-4F52-97E9-957AE69C7B35} = {8DB30E60-76FC-4517-B427-BE1B1988C7FB}
+		{C95F3784-F290-4DE0-85F8-0C45CB699937} = {0484CC42-2046-4F52-97E9-957AE69C7B35}
+		{506B4EEE-1038-4137-A7B7-C75FF32F7D34} = {0484CC42-2046-4F52-97E9-957AE69C7B35}
+		{D8811C9C-4027-4CEA-B0EF-E5819D9F6A83} = {C95F3784-F290-4DE0-85F8-0C45CB699937}
+		{455263EB-AE4D-4183-B327-ADD1ABE6A97D} = {506B4EEE-1038-4137-A7B7-C75FF32F7D34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33B77834-83AA-4A06-9D30-F55B457C5184}

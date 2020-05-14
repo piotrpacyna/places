@@ -3,6 +3,7 @@ using System.Reflection;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.Configuration;
 
 namespace PlaceSearchService.IntegrationTests
 {
@@ -10,11 +11,15 @@ namespace PlaceSearchService.IntegrationTests
     {
         public TestServer CreateServer()
         {
-            var path = Assembly.GetAssembly(typeof(PlaceSearchServiceTests))
+            var path = Assembly.GetExecutingAssembly()
               .Location;
 
             var hostBuilder = new WebHostBuilder()
                 .UseContentRoot(Path.GetDirectoryName(path))
+                .ConfigureAppConfiguration((context, builder) =>
+                {
+                    builder.AddJsonFile("appsettings.json", false, true);
+                })
                 .ConfigureServices(services => services.AddAutofac())
                 .UseStartup<Startup>();
 
